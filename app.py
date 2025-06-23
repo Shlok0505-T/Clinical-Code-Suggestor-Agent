@@ -12,13 +12,13 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS for dark modern theme
+# Custom CSS for light modern theme
 st.markdown("""
 <style>
-    /* Global dark theme */
+    /* Global light theme */
     .stApp {
-        background-color: #1a1a1a;
-        color: #ffffff;
+        background-color: #f8fafc;
+        color: #1e293b;
     }
     
     .main-header {
@@ -28,7 +28,7 @@ st.markdown("""
         margin-bottom: 2rem;
         color: white;
         text-align: center;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
     }
     
     .main-header h1 {
@@ -39,73 +39,77 @@ st.markdown("""
     }
     
     .section-header {
-        background: #2d2d2d;
+        background: #ffffff;
         padding: 1rem 1.5rem;
         border-radius: 15px;
         margin: 1.5rem 0 1rem 0;
         border-left: 4px solid #667eea;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border: 1px solid #e2e8f0;
     }
     
     .section-header h3 {
         margin: 0;
-        color: #ffffff;
+        color: #1e293b;
         font-size: 1.3rem;
         font-weight: 600;
     }
     
     .chat-container {
-        background: #2d2d2d;
+        background: #ffffff;
         border-radius: 20px;
         padding: 2rem;
         margin: 1rem 0;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-        border: 1px solid #404040;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        border: 1px solid #e2e8f0;
     }
     
     .user-message {
-        background: #404040;
-        color: #ffffff;
+        background: #f1f5f9;
+        color: #1e293b;
         padding: 1.2rem 1.5rem;
         border-radius: 18px;
         margin: 1rem 0;
         border-left: 4px solid #667eea;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        border: 1px solid #e2e8f0;
     }
     
     .assistant-message {
-        background: #333333;
-        color: #ffffff;
+        background: #fefefe;
+        color: #1e293b;
         padding: 1.2rem 1.5rem;
         border-radius: 18px;
         margin: 1rem 0;
         border-left: 4px solid #764ba2;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        border: 1px solid #e2e8f0;
     }
     
     .error-message {
-        background: #4a1f1f;
-        color: #ff6b6b;
+        background: #fef2f2;
+        color: #dc2626;
         padding: 1.2rem 1.5rem;
         border-radius: 18px;
         margin: 1rem 0;
-        border-left: 4px solid #ff6b6b;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        border-left: 4px solid #ef4444;
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.1);
+        border: 1px solid #fecaca;
     }
     
     .input-container {
-        background: #2d2d2d;
+        background: #ffffff;
         border-radius: 20px;
         padding: 1.5rem;
         margin: 1rem 0;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-        border: 1px solid #404040;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        border: 1px solid #e2e8f0;
     }
     
     .stTextArea > div > div > textarea {
-        background-color: #404040 !important;
-        color: #ffffff !important;
-        border: 2px solid #555555 !important;
+        background-color: #f8fafc !important;
+        color: #1e293b !important;
+        border: 2px solid #e2e8f0 !important;
         border-radius: 15px !important;
         padding: 1rem !important;
         font-size: 1rem !important;
@@ -113,20 +117,22 @@ st.markdown("""
     
     .stTextArea > div > div > textarea:focus {
         border-color: #667eea !important;
-        box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2) !important;
+        box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1) !important;
+        background-color: #ffffff !important;
     }
     
     .stTextInput > div > div > input {
-        background-color: #404040 !important;
-        color: #ffffff !important;
-        border: 2px solid #555555 !important;
+        background-color: #f8fafc !important;
+        color: #1e293b !important;
+        border: 2px solid #e2e8f0 !important;
         border-radius: 12px !important;
         padding: 0.8rem 1rem !important;
     }
     
     .stTextInput > div > div > input:focus {
         border-color: #667eea !important;
-        box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2) !important;
+        box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1) !important;
+        background-color: #ffffff !important;
     }
     
     .stButton > button {
@@ -137,29 +143,31 @@ st.markdown("""
         padding: 0.6rem 1.5rem !important;
         font-weight: 600 !important;
         transition: all 0.3s ease !important;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2) !important;
     }
     
     .stButton > button:hover {
         transform: translateY(-2px) !important;
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3) !important;
     }
     
     .sidebar-content {
-        background: #2d2d2d;
+        background: #ffffff;
         padding: 1.5rem;
         border-radius: 15px;
         margin: 1rem 0;
-        border: 1px solid #404040;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
     
     .metric-card {
-        background: #333333;
+        background: #f8fafc;
         padding: 1rem;
         border-radius: 12px;
         margin: 0.5rem 0;
         border-left: 3px solid #667eea;
         text-align: center;
+        border: 1px solid #e2e8f0;
     }
     
     .metric-value {
@@ -170,13 +178,13 @@ st.markdown("""
     
     .metric-label {
         font-size: 0.9rem;
-        color: #cccccc;
+        color: #64748b;
         margin-top: 0.5rem;
     }
     
     .timestamp {
         font-size: 0.8rem;
-        color: #888888;
+        color: #94a3b8;
         margin-top: 0.5rem;
         font-style: italic;
     }
@@ -202,36 +210,73 @@ st.markdown("""
     
     /* Sidebar styling */
     .css-1d391kg {
-        background-color: #1a1a1a;
+        background-color: #f8fafc;
     }
     
     .stExpander {
-        background-color: #2d2d2d;
-        border: 1px solid #404040;
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
         border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     
     .stExpander > div:first-child {
-        background-color: #2d2d2d;
+        background-color: #ffffff;
+        color: #1e293b;
     }
     
     /* Success/Error messages */
     .stSuccess {
-        background-color: #1a4a3a !important;
-        color: #4ade80 !important;
-        border-left: 4px solid #4ade80 !important;
+        background-color: #f0fdf4 !important;
+        color: #16a34a !important;
+        border-left: 4px solid #22c55e !important;
+        border: 1px solid #bbf7d0 !important;
     }
     
     .stError {
-        background-color: #4a1f1f !important;
-        color: #ff6b6b !important;
-        border-left: 4px solid #ff6b6b !important;
+        background-color: #fef2f2 !important;
+        color: #dc2626 !important;
+        border-left: 4px solid #ef4444 !important;
+        border: 1px solid #fecaca !important;
+    }
+    
+    /* Selectbox and other inputs */
+    .stSelectbox > div > div > div {
+        background-color: #f8fafc !important;
+        color: #1e293b !important;
+        border: 2px solid #e2e8f0 !important;
+        border-radius: 12px !important;
+    }
+    
+    .stSelectbox > div > div > div:focus {
+        border-color: #667eea !important;
+        box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1) !important;
+    }
+    
+    /* Checkbox styling */
+    .stCheckbox > label {
+        color: #1e293b !important;
+    }
+    
+    /* Spinner styling */
+    .stSpinner > div {
+        border-top-color: #667eea !important;
     }
     
     /* Hide Streamlit elements */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
+    
+    /* Additional light theme elements */
+    .element-container {
+        background-color: transparent;
+    }
+    
+    /* Password input styling */
+    .stTextInput[data-baseweb="input"] {
+        background-color: #f8fafc !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -358,7 +403,7 @@ with col1:
         elif "Error" in message["content"]:
             st.markdown(f"""
             <div class="error-message">
-                <span class="message-badge" style="background: #ff6b6b;">❌ ERROR</span>
+                <span class="message-badge" style="background: #ef4444;">❌ ERROR</span>
                 <div>{message["content"]}</div>
                 <div class="timestamp">{message.get("timestamp", "")}</div>
             </div>
@@ -402,7 +447,7 @@ with col1:
     with input_col1:
         user_input = st.text_area(
             "",
-            placeholder="Input Your Doctor's Note (e.g., 'Pt. c/o CP. Has HTN. ECG done. Rx: Nitroglycerin'):",
+            placeholder="Ask a medical question (e.g., 'Samsung earnings'):",
             height=100,
             key="medical_input",
             label_visibility="collapsed"
@@ -459,7 +504,11 @@ with col1:
 
 # Footer
 st.markdown("""
-<div style="text-align: center; color: #666666; padding: 2rem; margin-top: 2rem; border-top: 1px solid #404040;">
+<div style="text-align: center; color: #64748b; padding: 2rem; margin-top: 2rem; border-top: 1px solid #e2e8f0;">
+    <p><strong>MedSimplify AI</strong> - Medical Communication Assistant</p>
+    <p style="font-size: 0.8rem; margin-top: 1rem;">⚠️ This tool is for communication assistance only. Always verify medical accuracy.</p>
+</div>
+""", unsafe_allow_html=True)
     <p><strong>MedSimplify AI</strong> - Medical Communication Assistant</p>
     <p style="font-size: 0.8rem; margin-top: 1rem;">⚠️ This tool is for communication assistance only. Always verify medical accuracy.</p>
 </div>
