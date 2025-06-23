@@ -402,7 +402,7 @@ with col1:
     with input_col1:
         user_input = st.text_area(
             "",
-            placeholder="Ask a medical question (e.g., 'Samsung earnings'):",
+            placeholder="Input Your Doctor's Note (e.g., 'Pt. c/o CP. Has HTN. ECG done. Rx: Nitroglycerin'):",
             height=100,
             key="medical_input",
             label_visibility="collapsed"
